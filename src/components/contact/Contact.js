@@ -32,12 +32,6 @@ const ContactSection = styled(Section)`
     grid-template-rows: minmax(600px, auto);
 
   }
-
-  /* @media ${props => props.theme.media.phone} {
-    margin-top: 40px;
-    row-gap: 40px;
-    grid-template-columns: 1fr;
-  } */
 `
 
 const Foto = styled(ImgSrc)`
@@ -96,7 +90,6 @@ function ContactTitleComponent() {
         Или оставьте ваши данные и я сам вам напишу:
       </DescriptionAverage>
       <Form />
-
     </ContactTitle>
   )
 }
