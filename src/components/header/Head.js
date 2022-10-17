@@ -7,10 +7,10 @@ import bgPhoto2 from "../../resources/img/main_bg4.jpg"
 
 
 const HeadBg = styled.div`
-  min-height: 100vh;
+  min-height: 90vh;
   position: relative;
   background: url(${bgPhoto2}) no-repeat 50%/cover;
-  padding-top: 205px;
+  padding-top: 185px;
   @media ${props => props.theme.media.phone} {
     background: url(${bgPhoto2}) no-repeat 58%/cover;
   }

@@ -17,9 +17,9 @@ export const Title = styled.div`
 `;
 
 export const Description = styled.p`
-    margin-top: 10px;
+    font-size: 16px;
+    line-height: 20px;
     font-weight: 500;
-    font-size: 18px;
-    line-height: 22px;
-    color: ${props => props.theme.colors.liteGreen};
+    color: black;
+    /* color: ${props => props.theme.colors.liteGreen}; */
     `

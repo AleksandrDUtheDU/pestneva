@@ -1,10 +1,16 @@
 import React, { useContext } from 'react';
 import PropTypes from 'prop-types';
 import styled, { css } from 'styled-components';
+
+
+import { firstName } from '../action/action';
 import { MenuContext } from './navState';
 import Telegram from '../sociaIcons/Telegram';
 import Vkontakte from '../sociaIcons/Vkontakte';
 import Github from '../sociaIcons/Github';
+import NavItem from '../theme/NavItem';
+import { navigation } from '../content/content';
+
 
 const Menu = styled.nav`
     position: fixed;
@@ -31,7 +37,7 @@ const Menu = styled.nav`
         `}
 `;
 
-export const MenuLink = styled.a`
+export const MenuLink = styled.li`
     font-size: 24px;
     line-height: 36px;
     color: #070707;
@@ -68,7 +74,6 @@ export const MenuLink = styled.a`
             left: 25px;
         }
     }
-
     :hover {
         background-position: 90% 50%;
         :before {
@@ -98,15 +103,21 @@ SideMenu.propTypes = {
     children: PropTypes.node,
 };
 
+const items = navigation.map(item => {
+    const { id, name, link } = item;
+
+    return (
+        <MenuLink key={id}>
+            <NavItem name={name} link={link} action={firstName} />
+        </MenuLink>
+    )
+});
+
 SideMenu.defaultProps = {
     children: (
         <>
             <ul>
-                <li><MenuLink href="/">Главная</MenuLink></li>
-                <li><MenuLink href="#services">Услуги</MenuLink></li>
-                <li><MenuLink href="#price-list">Прайс</MenuLink></li>
-                <li><MenuLink href="#cases">Кейсы</MenuLink></li>
-                <li><MenuLink href="#contact">Контакты</MenuLink></li>
+                {items}
             </ul>
             <SocialLink>
                 <Github width="30" height="30" />

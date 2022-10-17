@@ -1,10 +1,14 @@
 import React, { useRef, useContext } from 'react';
 import styled from 'styled-components';
+
+import { firstName } from '../action/action';
 import useOnClickOutside from '../../hooks/onClickOutside';
 import { MenuContext } from './navState';
 import HamburgerButton from './hamdurgerButton';
 import { SideMenu } from './sideMenu';
 import { Button } from '../theme/Button';
+import NavItem from '../theme/NavItem';
+import { navigation } from '../content/content';
 
 const HeaderNavbar = styled.header`
     max-width: 1440px;
@@ -54,7 +58,7 @@ const HeadMenuLinkWrapp = styled.ul`
 
 `;
 
-const HeadMenuLink = styled.a`
+const HeadMenuLink = styled.li`
     margin: 0;
     font-weight: 700;
     font-size: 16px;
@@ -65,6 +69,7 @@ const HeadMenuLink = styled.a`
     }
 `;
 
+
 const MainMenu = () => {
     const node = useRef();
     const { isMenuOpen, toggleMenuMode } = useContext(MenuContext);
@@ -74,15 +79,23 @@ const MainMenu = () => {
         }
     });
 
+    const items = navigation.map(item => {
+        const { id, name, link } = item;
+
+        return (
+            <HeadMenuLink key={id}>
+                <NavItem name={name} link={link} action={firstName} />
+            </HeadMenuLink>
+        )
+    });
+
+    console.log(items)
+
     return (
         <HeaderNavbar ref={node}>
             <Navbar>
                 <HeadMenuLinkWrapp>
-                    <li><HeadMenuLink href="/">Главная</HeadMenuLink></li>
-                    <li><HeadMenuLink href="#services">Услуги</HeadMenuLink></li>
-                    <li><HeadMenuLink href="#price-list">Прайс</HeadMenuLink></li>
-                    <li><HeadMenuLink href="#cases">Кейсы</HeadMenuLink></li>
-                    <li><HeadMenuLink href="#contact">Контакты</HeadMenuLink></li>
+                    {items}
                 </HeadMenuLinkWrapp>
                 <Button>Оставить заявку</Button>
                 <HamburgerButton />
