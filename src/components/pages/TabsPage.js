@@ -1,11 +1,9 @@
 import styled from 'styled-components';
-import { useParams } from 'react-router-dom';
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { useState, useEffect, useMemo } from 'react';
-import { useSelector } from "react-redux";
 
-import { firstName, secondName } from '../action/action';
-import { services } from '../content/content';
+
+import { services, navigation } from '../content/content';
 import Spinner from '../spinner/Spinner';
 import ErrorMesage from '../errorMessage/ErrorMesage';
 import { Description } from '../theme/Title';
@@ -128,7 +126,7 @@ function TabsPage() {
 
     useEffect(() => {
         onRequest(services, list)
-    }, [list])
+    }, [])
 
     const getData = async (data, pathList) => {
         try {
@@ -149,11 +147,13 @@ function TabsPage() {
         getData(data, pathList)
     }
 
+
     function renderItems(arr) {
 
         const items = arr.map(item => {
 
             const { id, title, price, link, descr } = item;
+
 
             return (
                 <SinglePageItem key={id}>
@@ -174,25 +174,26 @@ function TabsPage() {
         return setContent(process, () => renderItems(tabs));
     }, [process])
 
-    const firstTitle = useSelector((state) => {
-        const { name, link } = state.firstName
+    const pathArr = window.location.pathname.slice(1).split('/') // [ 'services', 'bukhgalterskie_uslugi']
 
+    const firstTitle = (arr, pathArr) => {
+        const { name, link } = arr.find(item => item.link === pathArr[0]);
         return (
-            <NavItem name={name} link={link} action={firstName} />
+            <NavItem name={name} link={link} />
         )
-    });
+    };
 
-    const secondTitle = useSelector((state) => {
-        const { name } = state.secondName
+    const secondTitle = (arr, pathArr) => {
+        const { name, link } = arr.find(item => item.link === pathArr[1]);
         return (
-            <NavItem name={name} action={secondName} />
+            <NavItem name={name} link={link} />
         )
-    });
+    };
 
 
     return (
         <Section as="section">
-            <NavBox>{firstTitle} / {secondTitle}</NavBox>
+            <NavBox>{firstTitle(navigation, pathArr)} / {secondTitle(services, pathArr)}</NavBox>
             <SinglePageWrapp>
                 {elements}
             </SinglePageWrapp>

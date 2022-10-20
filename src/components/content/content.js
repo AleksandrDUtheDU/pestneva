@@ -14,22 +14,22 @@ export const navigation = [
     {
         id: '1',
         name: 'Главная',
-        link: '/',
+        link: '',
     },
     {
         id: '2',
         name: 'Услуги',
-        link: '/services',
+        link: 'services',
     },
     {
         id: '3',
         name: 'Кейсы',
-        link: '/case',
+        link: 'case',
     },
     {
         id: '4',
         name: 'Контакты',
-        link: '/contacts',
+        link: 'contacts',
     },
 ]
 

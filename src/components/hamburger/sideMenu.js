@@ -7,7 +7,10 @@ import { firstName } from '../action/action';
 import { MenuContext } from './navState';
 import Telegram from '../sociaIcons/Telegram';
 import Vkontakte from '../sociaIcons/Vkontakte';
-import Github from '../sociaIcons/Github';
+import Instagram from '../sociaIcons/Instagram';
+
+
+
 import NavItem from '../theme/NavItem';
 import { navigation } from '../content/content';
 
@@ -108,7 +111,7 @@ const items = navigation.map(item => {
 
     return (
         <MenuLink key={id}>
-            <NavItem name={name} link={link} action={firstName} />
+            <NavItem name={name} link={`/${link}`} action={firstName} />
         </MenuLink>
     )
 });
@@ -120,7 +123,7 @@ SideMenu.defaultProps = {
                 {items}
             </ul>
             <SocialLink>
-                <Github width="30" height="30" />
+                <Instagram width="30" height="30" />
                 <Vkontakte width="30" height="30" />
                 <Telegram width="30" height="30" />
             </SocialLink>

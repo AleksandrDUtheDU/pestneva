@@ -84,7 +84,7 @@ const MainMenu = () => {
 
         return (
             <HeadMenuLink key={id}>
-                <NavItem name={name} link={link} action={firstName} />
+                <NavItem name={name} link={`/${link}`} action={firstName} />
             </HeadMenuLink>
         )
     });

@@ -1,15 +1,11 @@
 import styled from 'styled-components';
 import { useParams } from 'react-router-dom';
-import { Link } from "react-router-dom";
-import { useState, useEffect, useMemo } from 'react';
 
-
-import { services } from '../content/content';
-import Spinner from '../spinner/Spinner';
-import ErrorMesage from '../errorMessage/ErrorMesage';
-import { Description, Title } from '../theme/Title';
+import { services, navigation } from '../content/content';
+import { Description } from '../theme/Title';
 import { Section } from "../theme/Container";
-
+import { NavBox } from '../theme/NavBox';
+import NavItem from '../theme/NavItem';
 
 
 
@@ -32,15 +28,12 @@ const SinglePageWrapp = styled.div`
 
 const SinglePageItem = styled.div`
     position: relative;
+    background-color: #fff7ec;
     min-height: 260px;
-    padding: 30px;
-    border: solid 1px black;
-    border-radius: 5px;
-    background: white;
     transition: all 0.3s;
-
     :hover{
         box-shadow: 3px 2px 2px grey;
+        text-decoration: none;
     }
     :focus{
         box-shadow: 3px 2px 2px grey;
@@ -52,118 +45,84 @@ const SinglePageTitle = styled.h2`
     font-size: 20px;
     line-height: 28px;
     font-weight: 700;
-    /* color: ${props => props.theme.colors.mainGreen}; */
+    color: ${props => props.theme.colors.mainGreen};
     text-transform: uppercase;
+    :hover{
+        text-decoration: none;
+    }
 `
 
 const SinglePageDescr = styled(Description)`
     margin-top: 20px;
     text-align: left;
     padding-bottom: 30px;
+    color: ${props => props.theme.colors.liteGreen};
+    :hover{
+        text-decoration: none;
+    }
 `
 const SinglePagePrice = styled(Description)`
     margin-top: 20px;
     text-align: left;
     font-weight: 700;
     text-transform: uppercase;
-`
-
-const SinglePageLink = styled(Description)`
-    position: absolute;
-    display: block;
-    bottom: 20px;
-    right: 22px;
-    text-align: end;
-    font-weight: 700;
-`
-
-const setContent = (process, Component) => {
-    switch (process) {
-        case 'waiting':
-            return <Spinner />;
-        case 'loading':
-            return <Spinner />;
-        case 'confirmed':
-            return <Component />;
-        case 'error':
-            return <ErrorMesage />;
-        default:
-            throw new Error('Unexpected process state')
+    color: ${props => props.theme.colors.mainGreen};
+    :hover{
+        text-decoration: none;
     }
-}
-
+`
 
 
 function TabsPageDescr() {
 
-    const [process, setProcess] = useState('waiting');
-    const [data, setData] = useState({});
-    const [tabs, setTabs] = useState([]);
-    const [name, setName] = useState('');
+    const pathArr = window.location.pathname.slice(1).split('/')
+    const { list, link } = useParams();
 
-
-    console.log(data)
-    console.log(tabs)
-    console.log(name)
-
-
-    const { link } = useParams();
-
-    useEffect(() => {
-        onRequest(services, link)
-    }, [link])
-
-
-    const getData = async (data, pathList) => {
-        try {
-            let response = await data.find(item => item.link === pathList);
-            setData(response)
-            setTabs(response.tabs)
-            setName(response.name)
-            setProcess('confirmed')
-
-            return response
-        } catch (err) {
-            setProcess('error')
-            alert(err);
-        }
-
+    const obj = (data, firstPath, secondPath) => {
+        let { tabs } = data.find(item => item.link === firstPath);
+        let res = tabs.find(item => item.link === secondPath);
+        return res
     }
 
-    const onRequest = (data, pathList) => {
-        getData(data, pathList)
+    const data = obj(services, list, link)
+
+    const firstTitle = (arr, pathArr) => {
+        const { name, link } = arr.find(item => item.link === pathArr[0]);
+        return (
+            <NavItem name={name} link={link} />
+        )
+    };
+
+    const secondTitle = (arr, pathArr) => {
+        const { name, link } = arr.find(item => item.link === pathArr[1]);
+        return (
+            <NavItem name={name} link={link} />
+        )
+    };
+
+    const thirdTitle = (data) => {
+        const { title, link } = data;
+        return (
+            <NavItem name={title} link={link} />
+        )
+    };
+
+    function renderItem(obj) {
+        const { title, price, descr } = obj;
+        return (
+            <SinglePageItem >
+                <SinglePageTitle>{title}</SinglePageTitle>
+                <SinglePagePrice>{price}</SinglePagePrice>
+                <SinglePageDescr>{descr}</SinglePageDescr>
+            </SinglePageItem >
+        )
     }
-
-    // function renderItems(arr) {
-
-    //     const items = arr.map(item => {
-
-    //         const { id, title, price, link, descr } = item;
-
-    //         return (
-    //             <SinglePageItem key={id}>
-    //                 <Link style={{ width: '100%', height: '100%' }} to={`/services/${list}/${link}`} >
-    //                     <SinglePageTitle>{title}</SinglePageTitle>
-    //                     <SinglePagePrice>{price}</SinglePagePrice>
-    //                     <SinglePageDescr>{descr}</SinglePageDescr>
-    //                     <SinglePageLink>Подробнее...</SinglePageLink>
-    //                 </Link>
-    //             </SinglePageItem>
-    //         )
-    //     });
-
-    //     return items
-    // }
-
-    // const elements = useMemo(() => {
-    //     return setContent(process, () => renderItems(tabs));
-    // }, [process])
-
 
     return (
         <Section as="section">
-            <Title>{name}</Title>
+            <NavBox>{firstTitle(navigation, pathArr)} / {secondTitle(services, pathArr)} / {thirdTitle(data)}</NavBox>
             <SinglePageWrapp>
+                {renderItem(data)}
             </SinglePageWrapp>
         </Section>
     );

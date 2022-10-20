@@ -1,23 +1,25 @@
 import styled from 'styled-components';
 
-import main_photo from '../../resources/img/main_photo.jpg';
+import main_photo from '../../resources/img/main_photo1.jpg';
 import Telegram from '../sociaIcons/Telegram';
 import Vkontakte from '../sociaIcons/Vkontakte';
-import Github from '../sociaIcons/Github';
+import Instagram from '../sociaIcons/Instagram';
 
 
 import { Section } from "../theme/Container";
-import { TitleAverage, Title, Description } from "../theme/Title";
-import { Divider } from '../theme/Divider';
+import { Title } from "../theme/Title";
 import Form from '../Form/Form';
 import { ImgSrc } from '../theme/SkillsImg';
 
 
 const ContactSection = styled(Section)`
-  padding-bottom: 90px;
+  /* padding-bottom: 90px; */
+  background: ${props => props.theme.colors.bgGreen};
+
+  padding-right: 30px;
   display: grid;
-  grid-template-columns: 1fr 1.55fr;
-  grid-template-rows: 600px;
+  grid-template-columns: 1fr 1.3fr;
+  grid-template-rows: 800px;
   justify-content: space-around;
   column-gap: 70px;
   text-align: left;
@@ -30,7 +32,6 @@ const ContactSection = styled(Section)`
   @media ${props => props.theme.media.phone} {
     grid-template-columns: 300px;
     grid-template-rows: minmax(600px, auto);
-
   }
 `
 
@@ -41,54 +42,44 @@ const Foto = styled(ImgSrc)`
   @media ${props => props.theme.media.bigTablet} {
     display: none;
   }
-
 `
 
 const ContactTitle = styled.div`
-  padding-top: 7px;
+  padding-top: 60px;
 `
 
-const DividerForMe = styled(Divider)`
-  margin: 0; 
-`
+const TitleAverage = styled(Title)`
+  margin-top: 30px;
+  font-size: 30px;
+  line-height: 36px;
 
-const TitleBig = styled(Title)`
-  font-size: 36px;
-`
-
-const DescriptionAverage = styled(Description)`
-  margin-top: 20px;
-  font-size: 14px;
-  line-height: 21px;
 `
 
 const SocialLink = styled.div`
-  margin-top: 20px;
-  width: 135px;
+  margin-top: 30px;
+  width: 200px;
   display: flex;
   justify-content: space-between;
   align-items:center;
 `;
 
 
-
 function ContactTitleComponent() {
   return (
     <ContactTitle>
-      <TitleAverage as="h2">Контакты</TitleAverage>
-      <TitleBig>Свяжитесь со мной</TitleBig>
-      <DividerForMe />
-      <DescriptionAverage>
-        Любым удобным для вас способом:
-      </DescriptionAverage>
+      {/* <Title as="h2">Контакты</Title> */}
+      <Title>Готовы работать вместе?</Title>
+      <TitleAverage>Тогда свяжитесь со мной</TitleAverage>
+
       <SocialLink>
-        <Github width="30" height="30" />
-        <Vkontakte width="30" height="30" />
-        <Telegram width="30" height="30" />
+        <Instagram iconColor="#214E41" width="40" height="40" />
+        <Vkontakte iconColor="#214E41" width="40" height="40" />
+        <Telegram iconColor="#214E41" width="40" height="40" />
       </SocialLink>
-      <DescriptionAverage>
-        Или оставьте ваши данные и я сам вам напишу:
-      </DescriptionAverage>
+
+      <TitleAverage>
+        Или оставьте ваши данные и я сама вам напишу:
+      </TitleAverage>
       <Form />
     </ContactTitle>
   )
@@ -97,7 +88,7 @@ function ContactTitleComponent() {
 
 function Contact() {
   return (
-    <ContactSection as="section" id='contact'>
+    <ContactSection as="section">
       <Foto img={main_photo} />
       <ContactTitleComponent />
     </ContactSection>

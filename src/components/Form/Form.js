@@ -8,12 +8,15 @@ import { Description } from "../theme/Title";
 import { Button } from "../theme/Button";
 
 const FormWrapp = styled.form`
-    margin-top: 20px;
+    margin-top: 60px;
     display: grid;
-    grid-template: 45px 190px 45px / repeat(2, 280px);
+    grid-template: 45px 190px 45px / repeat(2, 1fr);
     justify-content: space-between;
-    row-gap: 25px;
+    row-gap: 40px;
     column-gap: 25px;
+    @media ${props => props.theme.media.notebook} {
+        grid-template: 45px 190px 45px / repeat(2, 280px);
+    }
     @media ${props => props.theme.media.phone} {
         grid-template: 45px 45px 190px / 300px;
     }
@@ -93,7 +96,7 @@ const PoliticLink = styled.span`
     }
 `
 
-const ErrorMessage = styled.p`
+const ErrorMessage = styled.span`
     color: #bf1650;
     font-weight: 500;
     font-size: 12px;
@@ -128,7 +131,7 @@ function Form() {
                 {errors?.name?.type === "required" && <ErrorMessage>Это поле не заполнено</ErrorMessage>}
                 {errors?.name?.type === "maxLength" && <ErrorMessage>Имя не может быть более 20 символов</ErrorMessage>}
                 {/* {errors?.name?.type === "pattern" && <ErrorMessage>Имя не может содержать цифры</ErrorMessage>} */}
-                <DescrInput as={'label'} for>Ваше имя</DescrInput>
+                <DescrInput as={'label'} htmlFor='text'>Ваше имя</DescrInput>
             </WrappInput>
             <WrappInput>
                 <Input type="email" placeholder="example@site.com"
@@ -151,11 +154,11 @@ function Form() {
                 />
                 {errors?.text?.type === "required" && <ErrorMessage>Это поле не заполнено</ErrorMessage>}
                 {errors?.text?.type === "maxLength" && <ErrorMessage>Ваше сообщение не может быть более 200 символов</ErrorMessage>}
-                <DescrInput as={'label'} for='text'>Ваше сообщение</DescrInput>
+                <DescrInput as={'label'} htmlFor='text'>Ваше сообщение</DescrInput>
             </WrappTextarea>
             <TriggersBox>
                 <FormButton as={'button'} >Отправить сообщение</FormButton>
-                <PoliticText>
+                <PoliticText as={'div'}>
                     <PoliticInput type="checkbox"
                         {...register("checkbox", {
                             required: true,
@@ -165,6 +168,7 @@ function Form() {
                     />
                     <div>
                         <label>Я согласен(а) с <PoliticLink><Link to="/privacy">политикой конфиденциальности</Link></PoliticLink></label>
+                        <br />
                         {errors?.checkbox?.type === "required" && <ErrorMessage>Нужно принять политику конфиденциальности</ErrorMessage>}
                     </div>
                 </PoliticText>

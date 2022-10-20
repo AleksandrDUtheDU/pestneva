@@ -1,13 +1,9 @@
 import styled from 'styled-components';
-import { Link } from "react-router-dom";
-import { useSelector } from "react-redux";
-import { useDispatch } from "react-redux";
+import { Link, useLocation } from "react-router-dom";
 
-
-import { firstName, secondName } from '../action/action';
 import { Section } from "../theme/Container";
 import { ImgSrc } from '../theme/SkillsImg';
-import { services } from '../content/content';
+import { services, navigation } from '../content/content';
 import { NavBox } from '../theme/NavBox';
 import NavItem from '../theme/NavItem';
 
@@ -31,9 +27,7 @@ const ServicesTabItem = styled.div`
         /* box-shadow: 2px 2px 2px #757575; */
         opacity: 0.8;
         color: white;
-
     }
-
 `
 
 const StyledLink = styled(Link)`
@@ -72,12 +66,12 @@ const ServicesTabTitle = styled.h2`
     background-color: none;
 `
 
-const items = (dispatch) => services.map(item => {
+const items = (arr) => arr.map(item => {
     const { id, name, img, link } = item;
 
     return (
         <ServicesTabItem key={id}>
-            <StyledLink onClick={() => dispatch(secondName(item))} to={`/services/${link}`} >
+            <StyledLink to={`/services/${link}`} >
                 <ServicesTabImg img={img} alt={name} />
                 <ServicesTabTitle>{name}</ServicesTabTitle>
             </StyledLink>
@@ -87,14 +81,13 @@ const items = (dispatch) => services.map(item => {
 
 function ServicesTab() {
 
-    const dispatch = useDispatch();
-    const { name, link } = useSelector(state => state.firstName);
+    const { name, link } = navigation.find(item => item.link === window.location.pathname.slice(1));
 
     return (
         <Section as="section">
-            <NavBox><NavItem name={name} link={link} action={firstName} /> / </NavBox>
+            <NavBox><NavItem name={name} /> / </NavBox>
             <ServicesTabWrapp>
-                {items(dispatch)}
+                {items(services)}
             </ServicesTabWrapp>
         </Section>
     );

@@ -1,5 +1,4 @@
 import { Link } from "react-router-dom";
-import { useDispatch } from "react-redux";
 import styled from 'styled-components';
 
 export const StyledLink = styled(Link)`
@@ -19,10 +18,9 @@ const NavItem = (props) => {
 
     const { name, link, action } = props;
 
-    const dispatch = useDispatch();
 
     return (
-        <StyledLink onClick={() => dispatch(action(props))} to={link}> {name} </StyledLink >
+        <StyledLink onClick={action} to={link}> {name} </StyledLink >
     );
 };
 
