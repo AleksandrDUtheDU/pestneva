@@ -2,16 +2,12 @@ import styled from 'styled-components';
 import { Link, useParams } from "react-router-dom";
 import { useState, useEffect, useMemo } from 'react';
 
-
+import { setContent } from '../../services/services';
 import { services, navigation } from '../content/content';
-import Spinner from '../spinner/Spinner';
-import ErrorMesage from '../errorMessage/ErrorMesage';
 import { Description } from '../theme/Title';
 import { Section } from "../theme/Container";
 import { NavBox } from '../theme/NavBox';
-import NavItem from '../theme/NavItem';
-
-
+import { StyledLink } from '../theme/NavItem';
 
 const SinglePageWrapp = styled.div`
     min-height: 720px;
@@ -89,7 +85,7 @@ const SinglePageLink = styled(Description)`
     }
 `
 
-const StyledLink = styled(Link)`
+const StyledLinkPage = styled(Link)`
     text-decoration: none;
     color: inherit;
     display: inline-block;
@@ -102,20 +98,6 @@ const StyledLink = styled(Link)`
     }
 `;
 
-const setContent = (process, Component) => {
-    switch (process) {
-        case 'waiting':
-            return <Spinner />;
-        case 'loading':
-            return <Spinner />;
-        case 'confirmed':
-            return <Component />;
-        case 'error':
-            return <ErrorMesage />;
-        default:
-            throw new Error('Unexpected process state')
-    }
-}
 
 function TabsPage() {
 
@@ -125,44 +107,38 @@ function TabsPage() {
     const { list } = useParams();
 
     useEffect(() => {
-        onRequest(services, list)
+        getData(services, list)
     }, [])
 
     const getData = async (data, pathList) => {
+        setProcess('loading')
         try {
             let response = await data.find(item => item.link === pathList);
 
             setTabs(response.tabs)
             setProcess('confirmed')
+            console.log(response.tabs)
 
             return response
-        } catch (err) {
-
+        }
+        catch (err) {
             setProcess('error')
             alert(err);
         }
     }
 
-    const onRequest = (data, pathList) => {
-        getData(data, pathList)
-    }
-
-
     function renderItems(arr) {
-
         const items = arr.map(item => {
-
             const { id, title, price, link, descr } = item;
-
 
             return (
                 <SinglePageItem key={id}>
-                    <StyledLink to={`/services/${list}/${link}`} >
+                    <StyledLinkPage to={`/services/${list}/${link}`} >
                         <SinglePageTitle>{title}</SinglePageTitle>
                         <SinglePagePrice>{price}</SinglePagePrice>
                         <SinglePageDescr>{descr}</SinglePageDescr>
                         <SinglePageLink>Подробнее...</SinglePageLink>
-                    </StyledLink>
+                    </StyledLinkPage>
                 </SinglePageItem >
             )
         });
@@ -177,16 +153,16 @@ function TabsPage() {
     const pathArr = window.location.pathname.slice(1).split('/') // [ 'services', 'bukhgalterskie_uslugi']
 
     const firstTitle = (arr, pathArr) => {
-        const { name, link } = arr.find(item => item.link === pathArr[0]);
+        const { name } = arr.find(item => item.link === pathArr[0]);
         return (
-            <NavItem name={name} link={link} />
+            <StyledLink to=".." relative="path" >{name}</StyledLink>
         )
     };
 
     const secondTitle = (arr, pathArr) => {
-        const { name, link } = arr.find(item => item.link === pathArr[1]);
+        const { name } = arr.find(item => item.link === pathArr[1]);
         return (
-            <NavItem name={name} link={link} />
+            <StyledLink>{name}</StyledLink>
         )
     };
 

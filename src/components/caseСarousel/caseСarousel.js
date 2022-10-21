@@ -8,7 +8,7 @@ import { cases } from '../content/content';
 
 
 const CarouselSection = styled(Section)`
-    min-height:720px;
+    max-height:720px;
     padding: 0;
     display: flex;
     background: ${props => props.theme.colors.bgGreen};
@@ -22,15 +22,25 @@ const TitleCarouselWrapp = styled.div`
     display: none;
     }
 `
+const TittleWrapp = styled(Title)`
+
+`
+
 
 const TitleDescription = styled(Description)`
     margin-top: 20px;
     font-size: 22px;
-    line-height: 26px;
+    line-height: 28px;
     text-align:left;
+    @media ${props => props.theme.media.notebook} {
+        font-size: 20px;
+        line-height: 24px;
+    }
+
 `
 
 const CarouselWrapp = styled.div`
+    /* position: relative; */
     width: 60%;
     @media ${props => props.theme.media.bigTablet} {
     width: 100%;
@@ -47,7 +57,6 @@ const CarouselImg = styled.img`
 
 const CarouselTittle = styled(Title)`
     color: white;
-    margin-bottom: 43%;
 `
 
 
@@ -83,7 +92,7 @@ function CaseCarousel() {
     return (
         <CarouselSection>
             <TitleCarouselWrapp>
-                <Title>{cases[index].title}</Title>
+                <TittleWrapp>{cases[index].title}</TittleWrapp>
                 <TitleDescription>{cases[index].descr}</TitleDescription>
             </TitleCarouselWrapp>
             <CarouselWrapp>

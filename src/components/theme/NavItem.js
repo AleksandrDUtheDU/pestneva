@@ -12,16 +12,3 @@ export const StyledLink = styled(Link)`
 
     }
 `;
-
-
-const NavItem = (props) => {
-
-    const { name, link, action } = props;
-
-
-    return (
-        <StyledLink onClick={action} to={link}> {name} </StyledLink >
-    );
-};
-
-export default NavItem;

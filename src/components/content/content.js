@@ -46,63 +46,78 @@ export const services = [
                 price: 'от 7 500₽',
                 descr: '',
                 link: 'vedenie_buhgalterskogo_ucheta_tszh_snt_ont_dnp',
-                descrDetail: ''
+                descrDetail: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Praesentium impedit quasi saepe iusto quam nulla cumque iure sunt placeat hic sit pariatur, ipsum maiores veritatis non distinctio temporibus accusantium laboriosam?',
             },
             {
                 id: '2',
                 title: 'Расчет заработной платы',
                 price: 'от 1 500₽',
                 descr: '',
-                link: 'raschet_zarabotnoj_platy'
+                link: 'raschet_zarabotnoj_platy',
+                descrDetail: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Praesentium impedit quasi saepe iusto quam nulla cumque iure sunt placeat hic sit pariatur, ipsum maiores veritatis non distinctio temporibus accusantium laboriosam?',
+
             },
             {
                 id: '3',
                 title: 'Отчетность ООО',
                 price: 'от 6 000₽',
                 descr: 'Подготовка и сдача отчетности ООО',
-                link: 'otchetnost_ooo'
+                link: 'otchetnost_ooo',
+                descrDetail: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Praesentium impedit quasi saepe iusto quam nulla cumque iure sunt placeat hic sit pariatur, ipsum maiores veritatis non distinctio temporibus accusantium laboriosam?',
+
             },
             {
                 id: '4',
                 title: 'Бухгалтерское обслуживание ИП',
                 price: 'от 3 000₽',
                 descr: 'Занимайтесь бизнесом, а не бухгалтерией! Направьте свои усилия в развитие бизнеса.',
-                link: 'vedenie-bukhgalterskogo-ucheta-tszh-snt-ont-dnp'
+                link: 'buhgalterskoe_obsluzhivanie_ip',
+                descrDetail: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Praesentium impedit quasi saepe iusto quam nulla cumque iure sunt placeat hic sit pariatur, ipsum maiores veritatis non distinctio temporibus accusantium laboriosam?',
             },
             {
                 id: '5',
                 title: 'Бухгалтерское обслуживание ООО',
                 price: 'от 5 000₽',
                 descr: 'Переложите головную боль на профессионалов!',
-                link: 'buhgalterskoe_obsluzhivanie_ip'
+                link: 'buhgalterskoe_obsluzhivanie_ooo',
+                descrDetail: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Praesentium impedit quasi saepe iusto quam nulla cumque iure sunt placeat hic sit pariatur, ipsum maiores veritatis non distinctio temporibus accusantium laboriosam?',
+
             },
             {
                 id: '6',
                 title: 'Консультации бухгалтера',
                 price: 'от 1 500₽',
                 descr: 'Бухгалтерские консультации — неотъемлемая часть бухгалтерского обслуживания.',
-                link: 'konsultacii_buhgaltera'
+                link: 'konsultacii_buhgaltera',
+                descrDetail: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Praesentium impedit quasi saepe iusto quam nulla cumque iure sunt placeat hic sit pariatur, ipsum maiores veritatis non distinctio temporibus accusantium laboriosam?',
+
             },
             {
                 id: '7',
                 title: 'Восстановление бухгалтерского учета',
                 price: 'от 5 000₽',
                 descr: 'Обеспечим полный порядок в вашей бухгалтерии в любой ситуации!',
-                link: 'vosstanovlenie_buhgalterskogo_ucheta'
+                link: 'vosstanovlenie_buhgalterskogo_ucheta',
+                descrDetail: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Praesentium impedit quasi saepe iusto quam nulla cumque iure sunt placeat hic sit pariatur, ipsum maiores veritatis non distinctio temporibus accusantium laboriosam?',
+
             },
             {
                 id: '8',
                 title: 'Нулевая отчетность',
                 price: 'от 1 500₽',
                 descr: 'Когда вам нужен тариф «Нулевая отчетность»',
-                link: 'nulevaya_otchetnost'
+                link: 'nulevaya_otchetnost',
+                descrDetail: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Praesentium impedit quasi saepe iusto quam nulla cumque iure sunt placeat hic sit pariatur, ipsum maiores veritatis non distinctio temporibus accusantium laboriosam?',
+
             },
             {
                 id: '9',
                 title: 'Отчетность ИП',
                 price: 'от 1 500₽',
                 descr: 'Подготовка и сдача отчетности ИП',
-                link: 'otchetnost_ip'
+                link: 'otchetnost_ip',
+                descrDetail: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Praesentium impedit quasi saepe iusto quam nulla cumque iure sunt placeat hic sit pariatur, ipsum maiores veritatis non distinctio temporibus accusantium laboriosam?',
+
             }
         ]
     },
@@ -117,42 +132,54 @@ export const services = [
                 title: 'Регистрация ООО',
                 price: 'от 3 500₽',
                 descr: 'от 7 дней',
-                link: 'registraciya_ooo'
+                link: 'registraciya_ooo',
+                descrDetail: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Praesentium impedit quasi saepe iusto quam nulla cumque iure sunt placeat hic sit pariatur, ipsum maiores veritatis non distinctio temporibus accusantium laboriosam?',
+
             },
             {
                 id: '2',
                 title: 'Регистрация ИП',
                 price: 'от 2 500₽',
                 descr: 'от 7 дней',
-                link: 'registraciya_ip'
+                link: 'registraciya_ip',
+                descrDetail: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Praesentium impedit quasi saepe iusto quam nulla cumque iure sunt placeat hic sit pariatur, ipsum maiores veritatis non distinctio temporibus accusantium laboriosam?',
+
             },
             {
                 id: '3',
                 title: 'Внесение изменений в учредительные документы и в ЕГРЮЛ',
                 price: 'от 5 000₽',
                 descr: 'от 7 дней',
-                link: 'vnesenie_izmenenij_v_uchreditelnye_dokumenty_i_v_egryul'
+                link: 'vnesenie_izmenenij_v_uchreditelnye_dokumenty_i_v_egryul',
+                descrDetail: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Praesentium impedit quasi saepe iusto quam nulla cumque iure sunt placeat hic sit pariatur, ipsum maiores veritatis non distinctio temporibus accusantium laboriosam?',
+
             },
             {
                 id: '4',
                 title: 'Внесение изменений в ЕГРИП (для ИП)',
                 price: 'от 2 500₽',
                 descr: 'от 7 дней',
-                link: 'vnesenie_izmenenij_v_egrip_dlya_ip)'
+                link: 'vnesenie_izmenenij_v_egrip_dlya_ip)',
+                descrDetail: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Praesentium impedit quasi saepe iusto quam nulla cumque iure sunt placeat hic sit pariatur, ipsum maiores veritatis non distinctio temporibus accusantium laboriosam?',
+
             },
             {
                 id: '5',
                 title: 'Изменение ОКВЭД',
                 price: 'от 1 500₽',
                 descr: 'от 7 дней',
-                link: 'izmenenie_okved'
+                link: 'izmenenie_okved',
+                descrDetail: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Praesentium impedit quasi saepe iusto quam nulla cumque iure sunt placeat hic sit pariatur, ipsum maiores veritatis non distinctio temporibus accusantium laboriosam?',
+
             },
             {
                 id: '6',
                 title: 'Закрытие ИП',
                 price: 'от 2 500₽',
                 descr: 'от 7 дней',
-                link: 'zakrytie_ip'
+                link: 'zakrytie_ip',
+                descrDetail: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Praesentium impedit quasi saepe iusto quam nulla cumque iure sunt placeat hic sit pariatur, ipsum maiores veritatis non distinctio temporibus accusantium laboriosam?',
+
             },
         ]
     },
@@ -167,21 +194,27 @@ export const services = [
                 title: 'Восстановление кадрового учета',
                 price: 'от 25 000₽',
                 descr: 'Вы должны быть уверены, что ваши отношения с сотрудниками оформлены грамотно!',
-                link: 'vosstanovlenie_kadrovogo_ucheta'
+                link: 'vosstanovlenie_kadrovogo_ucheta',
+                descrDetail: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Praesentium impedit quasi saepe iusto quam nulla cumque iure sunt placeat hic sit pariatur, ipsum maiores veritatis non distinctio temporibus accusantium laboriosam?',
+
             },
             {
                 id: '2',
                 title: 'Кадровый аудит',
                 price: 'от 10 000₽',
                 descr: 'Получите анализ вашего кадрового учета и рекомендации по улучшению.',
-                link: 'kadrovyj_audit'
+                link: 'kadrovyj_audit',
+                descrDetail: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Praesentium impedit quasi saepe iusto quam nulla cumque iure sunt placeat hic sit pariatur, ipsum maiores veritatis non distinctio temporibus accusantium laboriosam?',
+
             },
             {
                 id: '3',
                 title: 'Кадровый учет',
                 price: 'от 1 000₽',
                 descr: 'Кадровый учет - задача, которая обязательно возникает перед компанией, где есть сотрудники.',
-                link: 'kadrovyj_uchet'
+                link: 'kadrovyj_uchet',
+                descrDetail: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Praesentium impedit quasi saepe iusto quam nulla cumque iure sunt placeat hic sit pariatur, ipsum maiores veritatis non distinctio temporibus accusantium laboriosam?',
+
             },
         ]
     },
@@ -196,21 +229,27 @@ export const services = [
                 title: 'Учет работы через маркетплейс в целях ОСНО',
                 price: 'от ?????₽',
                 descr: '?????',
-                link: 'uchet_raboty_cherez_marketplejs_v_celyah_osno'
+                link: 'uchet_raboty_cherez_marketplejs_v_celyah_osno',
+                descrDetail: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Praesentium impedit quasi saepe iusto quam nulla cumque iure sunt placeat hic sit pariatur, ipsum maiores veritatis non distinctio temporibus accusantium laboriosam?',
+
             },
             {
                 id: '2',
                 title: 'Учет работы через маркетплейс для исчисления УСН',
                 price: 'от ?????₽',
                 descr: '?????',
-                link: 'uchet_raboty_cherez_marketplejs_dlya_ischisleniya_usn'
+                link: 'uchet_raboty_cherez_marketplejs_dlya_ischisleniya_usn',
+                descrDetail: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Praesentium impedit quasi saepe iusto quam nulla cumque iure sunt placeat hic sit pariatur, ipsum maiores veritatis non distinctio temporibus accusantium laboriosam?',
+
             },
             {
                 id: '3',
                 title: 'Кассовый чек при продажах через маркетплейс',
                 price: 'от ?????₽',
                 descr: '?????',
-                link: 'kassovyj_chek_pri_prodazhah_cherez_marketplejs'
+                link: 'kassovyj_chek_pri_prodazhah_cherez_marketplejs',
+                descrDetail: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Praesentium impedit quasi saepe iusto quam nulla cumque iure sunt placeat hic sit pariatur, ipsum maiores veritatis non distinctio temporibus accusantium laboriosam?',
+
             },
 
         ]

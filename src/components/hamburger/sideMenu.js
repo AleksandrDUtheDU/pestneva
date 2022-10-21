@@ -3,7 +3,6 @@ import PropTypes from 'prop-types';
 import styled, { css } from 'styled-components';
 
 
-import { firstName } from '../action/action';
 import { MenuContext } from './navState';
 import Telegram from '../sociaIcons/Telegram';
 import Vkontakte from '../sociaIcons/Vkontakte';
@@ -11,7 +10,7 @@ import Instagram from '../sociaIcons/Instagram';
 
 
 
-import NavItem from '../theme/NavItem';
+import { StyledLink } from '../theme/NavItem';
 import { navigation } from '../content/content';
 
 
@@ -111,7 +110,7 @@ const items = navigation.map(item => {
 
     return (
         <MenuLink key={id}>
-            <NavItem name={name} link={`/${link}`} action={firstName} />
+            <StyledLink to={`/${link}`}> {name} </StyledLink>
         </MenuLink>
     )
 });

@@ -1,13 +1,12 @@
 import React, { useRef, useContext } from 'react';
 import styled from 'styled-components';
 
-import { firstName } from '../action/action';
 import useOnClickOutside from '../../hooks/onClickOutside';
 import { MenuContext } from './navState';
 import HamburgerButton from './hamdurgerButton';
 import { SideMenu } from './sideMenu';
 import { Button } from '../theme/Button';
-import NavItem from '../theme/NavItem';
+import { StyledLink } from '../theme/NavItem';
 import { navigation } from '../content/content';
 
 const HeaderNavbar = styled.header`
@@ -84,7 +83,7 @@ const MainMenu = () => {
 
         return (
             <HeadMenuLink key={id}>
-                <NavItem name={name} link={`/${link}`} action={firstName} />
+                <StyledLink to={`/${link}`}> {name} </StyledLink>
             </HeadMenuLink>
         )
     });

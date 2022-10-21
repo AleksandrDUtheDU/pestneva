@@ -10,16 +10,30 @@ const HeadBg = styled.div`
   min-height: 90vh;
   position: relative;
   background: url(${bgPhoto2}) no-repeat 50%/cover;
-  padding-top: 185px;
+  @media ${props => props.theme.media.bigTablet} {
+
+  }
+
   @media ${props => props.theme.media.phone} {
-    background: url(${bgPhoto2}) no-repeat 58%/cover;
+    background: url(${bgPhoto2}) no-repeat 65%/cover;
   }
 `
 
 const HeadSection = styled(Section)`
   padding: 100px;
-  padding-top: 140px;
+  padding-top: 185px;
+  @media ${props => props.theme.media.bigTablet} {
+  padding: 30px;
+  padding-top: 150px;
+  }
+  @media ${props => props.theme.media.phone} {
+    padding: 10px;
+    padding-top: 50vh;
+  }
+
+
 `
+
 
 const TitleWrapp = styled.div`
   text-align: left;
@@ -34,9 +48,13 @@ const TitleBig = styled(Title)`
     line-height: 42px;
     max-width: 550px;
   }
-  @media ${props => props.theme.media.smallPhone} {
+  @media ${props => props.theme.media.phone} {
     font-size: 26px;
     line-height: 39px;
+    color: black;
+    max-width: 100%;
+
+
   }
 `
 
@@ -44,6 +62,11 @@ const TitleBig = styled(Title)`
 const TitleAverage = styled(Title)`
   margin-top: 40px;
   color: white;
+  @media ${props => props.theme.media.phone} {
+    font-size: 20px;
+    line-height: 36px;
+    color: black;
+
 `
 
 function Head() {

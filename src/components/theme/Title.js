@@ -6,8 +6,13 @@ export const Title = styled.div`
     line-height: 46px;
     z-index: 5;
     color: ${props => props.theme.colors.mainGreen};
+    @media ${props => props.theme.media.notebook} {
+        font-size: 30px;
+        line-height: 34px;
+    }
+
     @media ${props => props.theme.media.bigTablet} {
-    font-size: 28px;
+    font-size: 30px;
     line-height: 36px;
     }
     @media ${props => props.theme.media.smallPhone} {
