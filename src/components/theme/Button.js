@@ -14,7 +14,6 @@ export const Button = styled.button`
     /* align-items: center; */
     &:hover {
         background: ${props => props.theme.colors.liteGreen};
-;
         box-shadow: 0px 4px 4px rgba(255, 255, 255, 0.288);
     }
 

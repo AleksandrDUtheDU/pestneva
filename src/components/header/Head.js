@@ -5,35 +5,25 @@ import { Section } from "../theme/Container";
 
 import bgPhoto2 from "../../resources/img/main_bg4.jpg"
 
-
 const HeadBg = styled.div`
   min-height: 90vh;
   position: relative;
   background: url(${bgPhoto2}) no-repeat 50%/cover;
   @media ${props => props.theme.media.bigTablet} {
-
   }
-
   @media ${props => props.theme.media.phone} {
     background: url(${bgPhoto2}) no-repeat 65%/cover;
   }
 `
 
 const HeadSection = styled(Section)`
-  padding: 100px;
-  padding-top: 185px;
+  padding: 20px 150px 20px 20px ;
   @media ${props => props.theme.media.bigTablet} {
-  padding: 30px;
-  padding-top: 150px;
   }
   @media ${props => props.theme.media.phone} {
-    padding: 10px;
-    padding-top: 50vh;
+    padding: 20px 20px 20px 20px ;
   }
-
-
 `
-
 
 const TitleWrapp = styled.div`
   text-align: left;
@@ -51,22 +41,18 @@ const TitleBig = styled(Title)`
   @media ${props => props.theme.media.phone} {
     font-size: 26px;
     line-height: 39px;
-    color: black;
     max-width: 100%;
-
-
   }
 `
 
-
 const TitleAverage = styled(Title)`
-  margin-top: 40px;
+  margin-top: 300px;
   color: white;
   @media ${props => props.theme.media.phone} {
     font-size: 20px;
     line-height: 36px;
     color: black;
-
+  }
 `
 
 function Head() {
@@ -75,10 +61,11 @@ function Head() {
       <HeadSection>
         <TitleWrapp>
           <TitleBig>
-            Татьяна Пестерева
+            ООО «Финансовая компания «Бухэксперт»
+            {/* <Logo /> */}
           </TitleBig>
           <TitleAverage>
-            - "Вы занимаетесь бизнесом, <br /> я занимаюсь вашим учетом."
+            - "Вы занимаетесь бизнесом, <br /> мы занимаемся вашим учетом."
           </TitleAverage>
         </TitleWrapp>
       </HeadSection>

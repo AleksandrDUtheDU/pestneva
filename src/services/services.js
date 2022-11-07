@@ -5,19 +5,19 @@ import ErrorMesage from '../components/errorMessage/ErrorMesage';
 
 export const usePostData = () => {
     const [process, setProcess] = useState('waiting');
-    const request = useCallback(async (url, { method, body }) => {
+    const request = useCallback(async (body) => {
         setProcess('loading');
-
+        // pestneva\src\mailer\smart.php
         try {
-            const response = await fetch(url, {
-                method: method,
-                headers: {
-                    'Content-type': 'application/json'
-                },
+            const response = await fetch('sendmail.php', {
+                method: 'POST',
+                // headers: {
+                //     'Content-type': 'application/json'
+                // },
                 body: body
             });
             if (!response.ok) {
-                throw new Error(`Could not fetch ${url}, status: ${response.status}`);
+                throw new Error(`Could not fetch mailer/smart.php , status: ${response.status}`);
             }
             const data = await response.json();
             return data;

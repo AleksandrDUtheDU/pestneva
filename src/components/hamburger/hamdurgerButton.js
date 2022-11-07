@@ -3,17 +3,17 @@ import styled from 'styled-components';
 import { MenuContext } from './navState';
 
 const MenuButton = styled.button`
-  display: none;
+  display: flex;
   align-items: flex-end;
   flex-direction:column;
   justify-content: space-between;
   outline: 0;
   border: 0;
   background: none;
-  padding: 20px;
-  @media ${props => props.theme.media.phone} {
-    display: flex;
-  }
+  padding: 10px;
+  padding-bottom: 5px;
+  position: fixed;
+  right: 0;
 
   cursor: pointer;
 
@@ -51,6 +51,8 @@ const MenuButton = styled.button`
       width: 40px;
     }
   }
+
+
 `;
 
 const Bar = styled.span`

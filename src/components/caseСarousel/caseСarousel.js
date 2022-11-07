@@ -1,7 +1,9 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import Carousel from 'react-bootstrap/Carousel';
 import styled from "styled-components";
+import { useMediaQuery } from 'react-responsive'
 
+import { theme } from '../theme/Theme';
 import { Section } from "../theme/Container";
 import { Title, Description } from "../theme/Title";
 import { cases } from '../content/content';
@@ -18,9 +20,9 @@ const CarouselSection = styled(Section)`
 const TitleCarouselWrapp = styled.div`
     padding: 80px 20px;
     width: 40%;
-    @media ${props => props.theme.media.bigTablet} {
+    /* @media ${props => props.theme.media.bigTablet} {
     display: none;
-    }
+    } */
 `
 const TittleWrapp = styled(Title)`
 
@@ -69,6 +71,11 @@ function CaseCarousel() {
         setIndex(selectedIndex);
     };
 
+    const isBigTablet = useMediaQuery({
+        query: theme.media.bigTablet
+    })
+
+
     const items =
         cases.map(item => {
             const { id, title, img } = item;
@@ -90,11 +97,16 @@ function CaseCarousel() {
 
 
     return (
+
+
         <CarouselSection>
-            <TitleCarouselWrapp>
-                <TittleWrapp>{cases[index].title}</TittleWrapp>
-                <TitleDescription>{cases[index].descr}</TitleDescription>
-            </TitleCarouselWrapp>
+
+            {isBigTablet ? '' :
+                <TitleCarouselWrapp>
+                    <TittleWrapp>{cases[index].title}</TittleWrapp>
+                    <TitleDescription>{cases[index].descr}</TitleDescription>
+                </TitleCarouselWrapp>
+            }
             <CarouselWrapp>
                 <Carousel activeIndex={index} onSelect={handleSelect}>
                     {items}

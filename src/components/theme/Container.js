@@ -4,7 +4,7 @@ export const Section = styled.div`
   max-width: 1440px;
   margin: 0 auto;
   text-align: center;
-  @media ${props => props.theme.media.bigTablet} {
+  /* @media ${props => props.theme.media.bigTablet} {
     padding: 15px;
     padding-top: 50px;
   }
@@ -17,5 +17,5 @@ export const Section = styled.div`
   }
 
   @media ${props => props.theme.media.smallPhone} {
-  }
+  } */
 `
