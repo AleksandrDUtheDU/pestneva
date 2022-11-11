@@ -1,12 +1,12 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import { createGlobalStyle, ThemeProvider } from 'styled-components';
+// import { BrowserRouter } from "react-router-dom";
 
 
-
-import { theme } from './components/theme/Theme'
-import App from './components/app/App';
-import FontStyles from './components/theme/FontStyles';
+import { theme } from './app/theme/Theme'
+import App from './app/App';
+import FontStyles from './app/theme/FontStyles';
 
 
 import './style/bootstrap.min.css'
@@ -57,11 +57,13 @@ input::-webkit-inner-spin-button {
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
     <React.StrictMode>
+        {/* <BrowserRouter> */}
         <ThemeProvider theme={theme}>
             <FontStyles />
             <Global />
             <App />
         </ThemeProvider>
+        {/* </BrowserRouter> */}
     </React.StrictMode>
 );
 
