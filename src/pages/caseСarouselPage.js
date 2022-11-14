@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useCallback } from 'react';
+import React, { useState } from 'react';
 import Carousel from 'react-bootstrap/Carousel';
 import styled from "styled-components";
 import { useMediaQuery } from 'react-responsive'
@@ -13,18 +13,13 @@ const CarouselSection = styled(Section)`
     max-height:720px;
     padding: 0;
     display: flex;
-    /* background: ${props => props.theme.colors.bgGreen}; */
     background: #efe6db;
-
     justify-content: space-between;
     text-align: center;
     `
 const TitleCarouselWrapp = styled.div`
     padding: 80px 20px;
     width: 40%;
-    /* @media ${props => props.theme.media.bigTablet} {
-    display: none;
-    } */
 `
 const TittleWrapp = styled(Title)`
     color: black;
@@ -47,7 +42,6 @@ const TitleDescription = styled(Description)`
 `
 
 const CarouselWrapp = styled.div`
-    /* position: relative; */
     width: 60%;
     @media ${props => props.theme.media.bigTablet} {
     width: 100%;
