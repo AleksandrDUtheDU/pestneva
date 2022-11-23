@@ -33,7 +33,7 @@ const Navbar = styled.nav`
     display: flex;
     justify-content: space-between;
     align-items: center;
-    z-index: 200;
+    z-index: 210;
     width: 100%;
     position: relative;
     @media ${props => props.theme.media.notebook} {
@@ -96,6 +96,19 @@ const SocialLink = styled.a`
     color: #214E41;
   }
 `;
+
+const Bloked = styled.div`
+    position: fixed;
+    visibility: visible; 
+    z-index: 200; 
+    top: 0px; 
+    left: 0px; 
+    width: 100%; 
+    height: 100%; 
+    background-color: #ccc; 
+    opacity: 0.5; 
+`;
+
 
 
 
@@ -160,6 +173,8 @@ const MainMenu = () => {
                 </Navbar>
                 <SideMenu />
             </NavbarWrapp>
+            {isMenuOpen ? <Bloked /> : ''}
+
         </BgNavbar>
     );
 };

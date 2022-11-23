@@ -56,12 +56,6 @@ const Foto = styled(ImgSrc)`
 const ContactTitle = styled.div`
   padding-top: 20px;
 `
-const TitleMain = styled(Title)`
-  color: black;
-  font-size: 24px;
-  line-height: 30px;
-
-`
 
 const TitleAverage = styled(Title)`
   margin-top: 10px;

@@ -8,23 +8,36 @@ import { Section } from "../app/theme/Container";
 import { Title, Description } from "../app/theme/Title";
 import { cases } from '../dataBase/dataBase';
 
+const BdCarouselSection = styled.section`
+    background: #efe6db;
+`
+
 
 const CarouselSection = styled(Section)`
-    max-height:720px;
+    /* max-height:720px; */
     padding: 0;
     display: flex;
     background: #efe6db;
     justify-content: space-between;
     text-align: center;
-    `
+    @media ${props => props.theme.media.bigTablet} {
+        flex-direction: column;
+    }
+`
+
 const TitleCarouselWrapp = styled.div`
     padding: 80px 20px;
-    width: 40%;
+    width: 50%;
+    height: 100%;
+    @media ${props => props.theme.media.bigTablet} {
+    width: 100%;
+    padding: 30px;
+
+    }
+
 `
 const TittleWrapp = styled(Title)`
     color: black;
-
-
 `
 
 
@@ -38,11 +51,21 @@ const TitleDescription = styled(Description)`
         font-size: 20px;
         line-height: 24px;
     }
-
 `
 
+const TitleDescriptionName = styled(Description)`
+    display: inline;
+    font-size: 20px;
+    line-height: 28px;
+    font-weight: 700;
+    margin-right: 15px;
+`
+
+
+
 const CarouselWrapp = styled.div`
-    width: 60%;
+    width: 50%;
+    height: 100%;
     @media ${props => props.theme.media.bigTablet} {
     width: 100%;
     }
@@ -54,11 +77,20 @@ const CarouselImg = styled.img`
     height: 720px;
     object-fit: cover;
     filter: brightness(50%);
+    @media ${props => props.theme.media.phone} {
+        height: 350px;
+    }
+
     `
 
 const CarouselTittle = styled(Title)`
     color: white;
 `
+const CarouselDescr = styled(Description)`
+    color: white;
+`
+
+
 
 
 function CaseCarouselPage() {
@@ -70,14 +102,14 @@ function CaseCarouselPage() {
         setIndex(selectedIndex);
     };
 
-    const isBigTablet = useMediaQuery({
-        query: theme.media.bigTablet
+    const isPhone = useMediaQuery({
+        query: theme.media.phone
     })
 
 
     const items =
         cases.map(item => {
-            const { id, title, img } = item;
+            const { id, title, img, services } = item;
             console.log(item)
             return (
                 <Carousel.Item key={id}>
@@ -86,31 +118,35 @@ function CaseCarouselPage() {
                         src={img}
                         alt={title}
                     />
-                    <Carousel.Caption>
-                        <CarouselTittle>{title}</CarouselTittle>
-                    </Carousel.Caption>
+                    {isPhone ? '' :
+                        <Carousel.Caption>
+                            <CarouselTittle>{title}</CarouselTittle>
+                            <CarouselDescr>{services}</CarouselDescr>
+                        </Carousel.Caption>
+                    }
                 </Carousel.Item>
             )
         })
 
 
     return (
-        <CarouselSection>
-            {isBigTablet ? '' :
+        <BdCarouselSection>
+            <CarouselSection>
+                <CarouselWrapp>
+                    <Carousel interval={15000} activeIndex={index} onSelect={handleSelect}>
+                        {items}
+                    </Carousel>
+                </CarouselWrapp>
                 <TitleCarouselWrapp>
-                    <TittleWrapp>{cases[index].title}</TittleWrapp>
-                    <TitleDescription>{cases[index].descr}</TitleDescription>
-                    <TitleDescription>{cases[index].city}</TitleDescription>
-                    <TitleDescription>{cases[index].services}</TitleDescription>
-                    <TitleDescription>{cases[index].price}</TitleDescription>
+                    {cases[index].title ? <TittleWrapp>{cases[index].title}</TittleWrapp> : ''}
+                    {cases[index].descr ? <TitleDescription><TitleDescriptionName>Описание:</TitleDescriptionName>{cases[index].descr}</TitleDescription> : ''}
+                    {cases[index].city ? <TitleDescription><TitleDescriptionName>Город:</TitleDescriptionName>{cases[index].city}</TitleDescription> : ''}
+                    {cases[index].services ? <TitleDescription><TitleDescriptionName>Услуги:</TitleDescriptionName>{cases[index].services}</TitleDescription> : ''}
+                    {cases[index].price ? <TitleDescription><TitleDescriptionName>Цены:</TitleDescriptionName>{cases[index].price}</TitleDescription> : ''}
                 </TitleCarouselWrapp>
-            }
-            <CarouselWrapp>
-                <Carousel activeIndex={index} onSelect={handleSelect}>
-                    {items}
-                </Carousel>
-            </CarouselWrapp>
-        </CarouselSection>
+
+            </CarouselSection>
+        </BdCarouselSection>
     );
 }
 

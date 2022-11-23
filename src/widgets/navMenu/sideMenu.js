@@ -29,13 +29,16 @@ const Menu = styled.nav`
     background-color: #F6F6F6;
     transform: translateX(-100%);
     transition: all 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
-    overflow: hidden;
+    /* overflow: hidden; */
+    /* visibility: hidden; */
+
     @media ${props => props.theme.media.phone} {
         max-width: 250px;
     }
     ${props =>
         props.open &&
         css`
+        /* visibility: hidden; */
         transform: translateX(0);
         `}
 `;
@@ -96,17 +99,32 @@ const SocialLink = styled.div`
     transform: translateX(-50%);
 `;
 
+
+
 export const SideMenu = ({ children }) => {
     const { isMenuOpen } = useContext(MenuContext);
 
-    return <Menu open={isMenuOpen}>{children}</Menu>;
+
+
+    return (
+        <>
+            {/* {isMenuOpen ? <Bloked /> : ''} */}
+            {/* <Bloked /> */}
+            <Menu open={isMenuOpen}>{children}</Menu>;
+        </>
+    )
 };
+
+
 
 SideMenu.propTypes = {
     children: PropTypes.node,
 };
 
+
 const items = navigation.map(item => {
+
+
     const { id, name, link } = item;
 
     return (
