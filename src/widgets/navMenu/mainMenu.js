@@ -1,4 +1,4 @@
-import React, { useRef, useContext } from 'react';
+import React, { useRef, useContext, useMemo, memo } from 'react';
 import styled from 'styled-components';
 import { useMediaQuery } from 'react-responsive'
 
@@ -134,47 +134,48 @@ const MainMenu = () => {
 
     const items = navigation.map(item => {
         const { id, name, link } = item;
-
         return (
             <HeadMenuLink key={id}>
                 <StyledLink to={`${link}`}> {name} </StyledLink>
             </HeadMenuLink>
         )
-    });
+    })
+
 
     return (
         <BgNavbar>
             <NavbarWrapp ref={node}>
                 <Navbar>
-
                     {isBigTablet ? '' :
                         <LogoWrapp>
                             <Logo iconColor="white" height="60" />
                             ФК «Бухэксперт»
                         </LogoWrapp>}
                     {isPhone ?
-                        <LogoWrapp>
-                            <Logo iconColor="white" height="60" />
-                            ФК «Бухэксперт»
-                        </LogoWrapp>
-                        : ''}
-                    {isPhone ? '' : <HeadMenuLinkWrapp>{items}</HeadMenuLinkWrapp>}
-                    {isPhone ? '' :
-                        <SocialItem>
-                            <Telegram iconColor="white" width="30" height="30" />
-                            <WhatsApp iconColor="white" width="30" height="30" />
-                            <Phone iconColor="white" width="30" height="30" />
-                            <SocialLink href="tel:+79116725855" target="blank">
-                                +7 911 672 58 55
-                            </SocialLink>
-                        </SocialItem>
+                        <>
+                            <LogoWrapp>
+                                <Logo iconColor="white" height="60" />
+                                ФК «Бухэксперт»
+                            </LogoWrapp>
+                            <HamburgerButton />
+                        </>
+                        :
+                        <>
+                            <HeadMenuLinkWrapp>{items}</HeadMenuLinkWrapp>
+                            <SocialItem>
+                                <Telegram iconColor="white" width="30" height="30" />
+                                <WhatsApp iconColor="white" width="30" height="30" />
+                                <Phone iconColor="white" width="30" height="30" />
+                                <SocialLink href="tel:+79116725855" target="blank">
+                                    +7 911 672 58 55
+                                </SocialLink>
+                            </SocialItem>
+                        </>
                     }
-                    {isPhone ? <HamburgerButton /> : ''}
                 </Navbar>
                 <SideMenu />
             </NavbarWrapp>
             {isMenuOpen ? <Bloked /> : ''}
-
         </BgNavbar>
     );
 };
